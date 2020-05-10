@@ -2,7 +2,7 @@
   <view class="apifmLogin" hidden="{{wxlogin}}">
     <view class="s-b">
       <view class="s-l-b">
-        <image src="/images/nologin.png" />
+        <!-- <image src="/images/nologin.png" /> -->
         <text>授权登录</text>
       </view>
       <view class="s-t-b">

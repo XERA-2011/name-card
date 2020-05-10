@@ -30,7 +30,7 @@
         "pagePath": "pages/products/products",
         "iconPath": "/images/mp/pro.png",
         "selectedIconPath": "/images/mp/proa.png",
-        "text": "产品"
+        "text": "项目"
       },
       {
         "pagePath": "pages/news/news",

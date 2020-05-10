@@ -5,7 +5,8 @@
   <view class="profile-box">
     <view class="profile">
       <view class="name">{{ cardUserInfo.base.nick }}</view>
-      <view class="position">{{ cardUserInfo.ext ? cardUserInfo.ext['职位'] : '-' }}</view>
+      <!-- <view class="position">{{ cardUserInfo.ext ? cardUserInfo.ext['职位'] : '-' }}</view> -->
+      <view class="position">名片信息</view>
     </view>
     <view class="profile2">
       <view class="name">手机</view>
