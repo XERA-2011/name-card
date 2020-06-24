@@ -71,9 +71,6 @@ Page({
         this.setData({
           newsObject: res.data
         })
-        wx.setNavigationBarTitle({
-          title: res.data.title + ' - ' + wx.getStorageSync('mallName')
-        })
         WxParse.wxParse('article', 'html', res.data.content, this, 5);
       }
     })

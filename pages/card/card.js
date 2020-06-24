@@ -118,7 +118,8 @@ Page({
         })
       }
       wx.setNavigationBarTitle({
-        title: _data.cardUserInfo.base.nick + ' - ' + wx.getStorageSync('mallName')
+        // title: _data.cardUserInfo.base.nick + ' - ' + wx.getStorageSync('mallName')
+        title: _data.cardUserInfo.base.nick + ' - ' + '个人名片'
       })
       this.setData(_data)
     }
@@ -156,7 +157,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '您好，我是 ' + wx.getStorageSync('mallName') + ' 的' + this.data.cardUserInfo.base.nick + '，请惠存我的名片。',
+      title: '您好，我是前端工程师 ' + this.data.cardUserInfo.base.nick + '，请惠存我的名片。',
       path: '/pages/card/card?cardUid=' + this.data.cardUserInfo.base.id,
       imageUrl: this.data.cardUserInfo.base.avatarUrl
     }
@@ -167,16 +168,17 @@ Page({
     })
   },
   copyData(e){
-    const v = e.currentTarget.dataset.v
-    wx.setClipboardData({
-      data: v,
-      success: (res) => {
-        wx.showToast({
-          title: '复制成功',
-          icon: 'success'
-        })
-      }
-    })
+    console.log(1)
+    // const v = e.currentTarget.dataset.v
+    // wx.setClipboardData({
+    //   data: v,
+    //   success: (res) => {
+    //     wx.showToast({
+    //       title: '复制成功',
+    //       icon: 'success'
+    //     })
+    //   }
+    // })
   },
   goIndex(){
     wx.navigateTo({

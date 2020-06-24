@@ -3,7 +3,7 @@
     <image class="logo" src="/images/mp/nodata-message.png" mode="widthFix" />
     <div>暂无数据 ~ </div>
   </div>
-  <div wx:for="{{newsList}}" wx:for-index='id' class="newsList" bindtap="goDetail" data-id="{{item.id}}">
+  <div wx:for="{{newsList}}" wx:for-index='id' wx:key="index" class="newsList" bindtap="goDetail" data-id="{{item.id}}">
     <div class="title">{{item.title}}</div>
     <div class="descriptDiv">
       <div class="word" :style="item.pic ? 'width: 75%;' : ''">
