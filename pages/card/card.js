@@ -168,17 +168,16 @@ Page({
     })
   },
   copyData(e){
-    console.log(1)
-    // const v = e.currentTarget.dataset.v
-    // wx.setClipboardData({
-    //   data: v,
-    //   success: (res) => {
-    //     wx.showToast({
-    //       title: '复制成功',
-    //       icon: 'success'
-    //     })
-    //   }
-    // })
+    const v = e.currentTarget.dataset.v
+    wx.setClipboardData({
+      data: v,
+      success: (res) => {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'success'
+        })
+      }
+    })
   },
   goIndex(){
     wx.navigateTo({

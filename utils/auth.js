@@ -23,7 +23,8 @@ async function login(page){
   const _this = this
   wx.login({
     success: function (res) {
-      WXAPI.login_wx(res.code).then(function (res) {        
+      WXAPI.login_wx(res.code).then(function (res) {
+        console.log(res)
         if (res.code == 10000) {
           // 去注册
           //_this.register(page)
