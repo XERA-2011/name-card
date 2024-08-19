@@ -12,17 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EastWorld/wechat-app-mall.git"
+    "url": "git+https://github.com/XERA-2011/name-card.git"
   },
-  "keywords": [
-    "微店",
-    "小店",
-    "微商城"
-  ],
-  "author": "gooking",
+  "keywords": ["个人名片"],
+  "author": "XERA-2011",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EastWorld/wechat-app-mall/issues"
+    "url": "https://github.com/XERA-2011/name-card/issues"
   },
-  "homepage": "https://github.com/EastWorld/wechat-app-mall#readme"
+  "homepage": "https://github.com/XERA-2011/name-card"
 }

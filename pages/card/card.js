@@ -25,7 +25,7 @@ Page({
       const scene = decodeURIComponent(e.scene)
       wx.setStorageSync('referrer', scene)
       wx.setStorageSync('cardUid', scene)
-    }    
+    }
   },
 
   /**
@@ -38,12 +38,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  async onShow () {
-    AUTH.checkHasLogined().then(isLogined => {
-      this.setData({
-        wxlogin: isLogined
-      })
-    })
+  async onShow() {
+    // AUTH.checkHasLogined().then(isLogined => {
+    //   this.setData({
+    //     wxlogin: isLogined
+    //   })
+    // })
     await WXAPI.queryConfigBatch('mallName,DEFAULT_FRIEND_UID').then(function (res) {
       if (res.code == 0) {
         res.data.forEach(config => {
@@ -51,20 +51,21 @@ Page({
         })
       }
     })
-    
+
     const cardUid = await this.getCardUid()
     this.getCardInfo(cardUid)
-    const qrcode = APP.globalData._haibaoimg_qrcode
+    const qrcode = APP.globalData._haibaoimg_qrcode ?? wx.getStorageSync('_haibaoimg_qrcode');
     if (!qrcode) {
-      // 获取二维码
+      // 获取二维码(理论上会更新缓存地址)
       WXAPI.wxaQrcode({
         scene: cardUid,
         page: 'pages/card/card',
         is_hyaline: false,
         expireHours: 1
       }).then(res => {
-        if(res.code == 0){
-          APP.globalData._haibaoimg_qrcode = res.data
+        if (res.code == 0) {
+          APP.globalData._haibaoimg_qrcode = res.data;
+          wx.setStorageSync('_haibaoimg_qrcode', res.data);
           this.setData({
             qrcode: res.data
           })
@@ -76,7 +77,7 @@ Page({
       })
     }
   },
-  async getCardUid(){
+  async getCardUid() {
     let cardUid = wx.getStorageSync('cardUid')
     const uid = wx.getStorageSync('uid')
     if (!cardUid) {
@@ -90,10 +91,10 @@ Page({
       }
       // 读取默认设置
       cardUid = wx.getStorageSync('DEFAULT_FRIEND_UID')
-    }    
+    }
     return cardUid
   },
-  async getCardInfo(cardUid){
+  async getCardInfo(cardUid) {
     const uid = wx.getStorageSync('uid')
     const token = wx.getStorageSync('token')
     if (uid) {
@@ -109,6 +110,7 @@ Page({
       if (res.data.userLevel && res.data.userLevel.maxUser && res.data.userLevel.maxUser > 1) {
         _data.showMpjbutton = true
       }
+      console.log('res.data----',res.data);
       _data.cardUserInfo = res.data
       if (_data.cardUserInfo.ext) {
         Object.keys(_data.cardUserInfo.ext).forEach(k => {
@@ -119,8 +121,9 @@ Page({
       }
       wx.setNavigationBarTitle({
         // title: _data.cardUserInfo.base.nick + ' - ' + wx.getStorageSync('mallName')
-        title: _data.cardUserInfo.base.nick + ' - ' + '个人名片'
+        title: _data.cardUserInfo.base.nick
       })
+      console.log(_data);
       this.setData(_data)
     }
   },
@@ -157,17 +160,17 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '您好，我是前端工程师 ' + this.data.cardUserInfo.base.nick + '，请惠存我的名片。',
+      title: this.data.cardUserInfo.base.nick + ' 的个人名片。',
       path: '/pages/card/card?cardUid=' + this.data.cardUserInfo.base.id,
       imageUrl: this.data.cardUserInfo.base.avatarUrl
     }
   },
-  callPhone(){
+  callPhone() {
     wx.makePhoneCall({
       phoneNumber: this.data.cardUserInfo.base.mobile
     })
   },
-  copyData(e){
+  copyData(e) {
     const v = e.currentTarget.dataset.v
     wx.setClipboardData({
       data: v,
@@ -179,7 +182,7 @@ Page({
       }
     })
   },
-  goIndex(){
+  goIndex() {
     wx.navigateTo({
       url: '/pages/index/index'
     })
@@ -195,7 +198,7 @@ Page({
     })
   },
   cardposter() {
-    wx.navigateTo({ 
+    wx.navigateTo({
       url: '/pages/cardposter/cardposter?cardUid=' + this.data.cardUserInfo.base.id
     })
   },

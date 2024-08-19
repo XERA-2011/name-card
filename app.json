@@ -24,19 +24,19 @@
         "pagePath": "pages/card/card",
         "iconPath": "/images/mp/mp.png",
         "selectedIconPath": "/images/mp/mpa.png",
-        "text": "名片"
+        "text": ""
       },
       {
         "pagePath": "pages/products/products",
         "iconPath": "/images/mp/pro.png",
         "selectedIconPath": "/images/mp/proa.png",
-        "text": "项目"
+        "text": ""
       },
       {
         "pagePath": "pages/news/news",
         "iconPath": "/images/mp/dt.png",
         "selectedIconPath": "/images/mp/dta.png",
-        "text": "动态"
+        "text": ""
       }
     ]
   },

@@ -74,6 +74,7 @@ App({
     // })
   },
   globalData: {                
-    isConnected: true
+    isConnected: true,
+    _haibaoimg_qrcode: 'https://dcdn.it120.cc/cuser/24831/2021/04/17/0f67e930-5951-43e6-ba24-a8f2fd13a34a.png' // 先写死 免得反复请求
   }
 })

@@ -20,7 +20,7 @@
   background-color: #fff;
   bottom: 100rpx;
   border-radius: 10rpx;
-  box-shadow: 0 15rpx 10rpx rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20rpx #eeeeee;
 }
 
 .action-buttons {
@@ -42,7 +42,7 @@
 }
 
 .action-buttons .button .txt {
-  font-size: 12px;
+  font-size: 24rpx;
   display: block;
 }
 
@@ -51,17 +51,23 @@
   padding: 20rpx;
   color: #555;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  flex-direction: column;
+}
+
+.profile text {
+  font-size: 24rpx;
 }
 
 .profile .name {
-  font-size: 20px;
+  font-size: 40rpx;
+  font-weight: 700;
+  text-align: center;
 }
 
 .profile .position {
-  font-size: 12px;
-  margin-left: 30rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+  border-bottom: 1px solid #ffeec1;
 }
 
 .phone {
@@ -81,18 +87,18 @@
 }
 
 .profile2 .name {
-  font-size: 16px;
+  font-size: 32rpx;
   width: 120rpx;
 }
 
 .profile2 .position {
-  font-size: 14px;
+  font-size: 28rpx;
   width: 400rpx;
 }
 
 .profile2 .action {
   color: #fed257;
-  font-size: 12px;
+  font-size: 24rpx;
   width: 120rpx;
   background-color: #009e57;
   border-radius: 10rpx;
@@ -144,7 +150,7 @@
 }
 
 .shareFloatDiv2 .p1 .wx {
-  font-size: 14px;
+  font-size: 28rpx;
   width: 375rpx;
   text-align: center;
   padding-top: 50rpx;
@@ -165,7 +171,26 @@
   line-height: 100rpx;
   text-align: center;
   color: #555;
-  font-size: 14px;
+  font-size: 28rpx;
+}
+
+.qrcode-box {
+  width: 100%;
+  text-align: center;
+  margin-top: 100rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.qrcode-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40rpx;
+  background-image: linear-gradient(#faf9f9, #ffffff);
+  z-index: 1;
 }
 
 .qrcode {
